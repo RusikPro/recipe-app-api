@@ -13,3 +13,14 @@ docker-compose run --rm app sh -c "python manage,py collectstatic"
 docker-compose up
 
 docker-compose run --rm app sh -c "flake8"
+
+
+dcr "python manage.py makemigrations"
+
+dcr "python manage.py wait_for_db && python manage.py migrate"
+
+
+# To see and remove some docker volumes
+docker volume ls
+docker-compose down
+docker volume rm recipe-app-api_dev-db-data
