@@ -24,3 +24,21 @@ dcr "python manage.py wait_for_db && python manage.py migrate"
 docker volume ls
 docker-compose down
 docker volume rm recipe-app-api_dev-db-data
+
+
+
+# You can clean up dangling images (and potentially solve the "none:none"
+# issue) by running Docker's prune command. Be careful, as this will remove all
+# unused Docker objects (images, containers, volumes, and networks).
+docker system prune
+
+
+# To remove dangling images specifically:
+docker image prune
+
+
+# Building With No Cache: To ensure that your build does not use any cached
+# layers (which might help if the issue is caused by caching), you can build
+# your Docker image with the --no-cache flag. Note that this will make the
+# build take longer since it has to recreate every layer.
+docker-compose build --no-cache
