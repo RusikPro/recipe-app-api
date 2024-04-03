@@ -42,3 +42,7 @@ docker image prune
 # your Docker image with the --no-cache flag. Note that this will make the
 # build take longer since it has to recreate every layer.
 docker-compose build --no-cache
+
+
+# Starting a new app
+dcr "python manage.py startapp user"
