@@ -1,0 +1,28 @@
+// Inside .devcontainer/devcontainer.json
+{
+    "name": "Your Project Name",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/app",
+    "settings": {
+        "python.pythonPath": "/py/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.autopep8Path": "/py/bin/autopep8",
+        "python.testing.pytestArgs": [
+            "app"
+        ],
+        "python.testing.unittestEnabled": false,
+        "python.testing.nosetestsEnabled": false,
+        "python.testing.pytestEnabled": true
+    },
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+    ],
+    "forwardPorts": [
+        8000
+    ],
+    "postCreateCommand": "pip install -r requirements.txt",
+    "shutdownAction": "stopCompose"
+}
