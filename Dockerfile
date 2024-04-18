@@ -7,6 +7,8 @@ COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./app /app
 WORKDIR /app
+
+
 EXPOSE 8000
 
 ARG DEV=false
@@ -20,7 +22,7 @@ RUN apt-get update && apt-get install -y \
         /py/bin/pip install -r /tmp/requirements.dev.txt; \
     fi && \
     apt-get remove -y build-essential libpq-dev && apt-get autoremove -y && apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* && \
+    rm -rf /var/lib/apt/lists/* && \
     useradd -m django-user
 
 RUN mkdir -p /home/django-user/.vscode-server && \
