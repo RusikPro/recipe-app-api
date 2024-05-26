@@ -26,7 +26,11 @@ RUN apt-get update && apt-get install -y \
     fi && \
     apt-get remove -y build-essential libpq-dev && apt-get autoremove -y && apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    useradd -m django-user
+    useradd -m django-user && \
+    mkdir -p /vol/web/media && \
+    mkdir -p /vol/web/static && \
+    chown -R django-user:django-user /vol && \
+    chmod -R 755 /vol
 
 RUN mkdir -p /home/django-user/.vscode-server && \
     chown -R django-user:django-user /home/django-user && \
