@@ -1,7 +1,7 @@
 FROM nginx:1.21.6-alpine
 LABEL maintainer="RuslanArkh"
 
-COPY ./default.conf.tpl /etc/nginx/templates/default.conf.tpl
+COPY ./default.conf.tpl /etc/nginx/default.conf.tpl
 COPY ./uwsgi_params /etc/nginx/uwsgi_params
 COPY ./run.sh /run.sh
 
